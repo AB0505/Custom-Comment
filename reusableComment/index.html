@@ -1,16 +1,71 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Angela's Comment Component</title>
+    <title>Reusable Components</title>
+    <script type="module" src="./main.js"></script>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <script type="text/javascript" src="/main.js"></script>
-    <div id="app"></div>
-    <my-comment id="comment1"></my-comment>
-    <my-comment id="comment2"></my-comment>
-    <my-comment id="comment3"></my-comment>
-  </body>
+    <header id="header"><h1> Please comment on photo</h1></header>
+    <template id="comment">
+      <style>
+        .comment {
+          border: 1px solid #333;
+          margin-bottom: 1em;
+        }
+
+        .comment--head {
+          border-bottom: 1px solid #ccc;
+          padding: 0.25rem 0.5rem;
+        }
+
+        .comment--body {
+          padding: 0.5rem;
+        }
+         
+      </style>
+      <article class="comment">
+        <header class="comment--head">
+          <p>
+            <span class="comment--name"></span> (<span
+              class="comment--email"
+            ></span
+            >)
+          </p>
+          <time class="comment--time"></time>
+        </header>
+        <p class="comment--body"></p>
+      </article>
+    </template>
+
+    <img
+      src="https://images.pexels.com/photos/2072600/pexels-photo-2072600.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      alt="Palm trees under starry night"
+    />
+    <form action="POST" id="comment-form" class="form">
+      <div class="form--group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+      </div>
+      <div class="form--group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+      <div class="form--group">
+        <label for="comment">Comment:</label>
+        <textarea id="comment" rows="5" name="body" required></textarea>
+      </div>
+      <div class="form--group">
+        <label for="agree" 
+        ><input type="checkbox" id="agree" name="agree" required />I agree to
+        have my comment posted</label
+      >
+    </div>
+    <input type="submit" />
+  </form>
+
+  <div id="comments"></div>
+</body>
 </html>
