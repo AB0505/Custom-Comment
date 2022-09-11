@@ -7,10 +7,65 @@
     <title>Angela's Comment Component</title>
   </head>
   <body>
-    <script type="text/javascript" src="/main.js"></script>
-    <div id="app"></div>
-    <my-comment id="comment1"></my-comment>
-    <my-comment id="comment2"></my-comment>
-    <my-comment id="comment3"></my-comment>
+    <template id="comment">
+      <style>
+        .comment {
+          border: 1px solid #333;
+          margin-bottom: 1em;
+        }
+
+        .comment--head {
+          border-bottom: 1px solid #ccc;
+          padding: 0.25rem 0.5rem;
+          margin-top: 30px;
+        }
+
+        .comment--body {
+          padding: 0.5rem;
+          align-items: center;
+        }
+        
+        
+      </style>
+      <article class="comment">
+        <header class="comment--head">
+          <p>
+            <span class="comment--name"></span> (<span
+              class="comment--email"
+            ></span
+            >)
+          </p>
+          <time class="comment--time"></time>
+        </header>
+        <p class="comment--body"></p>
+      </article>
+    </template>
+
+    <img
+      src="https://picsum.photos/id/1069/600/400"
+      alt="A floating jelly fish in water"
+    />
+    <form action="POST" id="comment-form" class="form">
+      <div class="form--group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+      </div>
+      <div class="form--group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+      <div class="form--group">
+        <label for="comment">Comment:</label>
+        <textarea id="comment" rows="5" name="body" required></textarea>
+      </div>
+      <div class="form--group">
+        <label for="agree"
+          ><input type="checkbox" id="agree" name="agree" required />Yes, post my comment</label
+        >
+      </div>
+      <input type="submit" />
+    </form>
+
+    <div id="comments"></div>
   </body>
 </html>
