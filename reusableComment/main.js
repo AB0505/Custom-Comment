@@ -44,3 +44,25 @@ store.subscribe((state) => {
   }
 });
 });
+// Manage Filters
+const filters = document.querySelector('#filters');
+// Listen for the submit event on the filter form
+filters.addEventListener('submit', (e) => {
+  e.preventDefault();
+  // Grab the form data as an object
+  const data = Object.fromEntries(new FormData(filters).entries());
+  // Format it into a filter options object
+  const options = {
+    name: data['name-filter'],
+    email: data['email-filter'],
+    length: data['length-filter'],
+  };
+  // Call the filter
+  store.filter(options);
+});
+
+// On form reset, also reset the filters in the state manager
+filters.addEventListener('reset', (e) => {
+  store.filterReset();
+  e.target.querySelector('input, textarea, button').focus();
+});

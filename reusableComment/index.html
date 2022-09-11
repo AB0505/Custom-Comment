@@ -65,6 +65,24 @@
       </div>
       <input type="submit" />
     </form>
+    
+    <form id="filters">
+      <h2>Filter Comments</h2>
+      <div class="form--group">
+        <label for="name-filter">Name:</label>
+        <input type="text" id="name-filter" name="name-filter" />
+      </div>
+      <div class="form--group">
+        <label for="email">Email:</label>
+        <input type="email" id="email-filter" name="email-filter" />
+      </div>
+      <div class="form--group">
+        <label for="length-filter">Minimum Length:</label>
+        <input type="number" id="length-filter" name="length-filter" min="0" />
+      </div>
+      <input type="submit" />
+      <input type="reset" />
+    </form>
 
     <div id="comments"></div>
   </body>
